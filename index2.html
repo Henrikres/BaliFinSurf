@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Bali Fin Surf</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+  --sand: #f3eadf;
+  --ocean: #0f4c5c;
+  --deep-ocean: #12333b;
+  --white: #ffffff;
+  --text: #1f2a2e;
+  --muted: #6b7477;
+  --whatsapp: #25D366;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1.6;
+  color: var(--text);
+  background: var(--sand);
+}
+
+.navbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
+  color: white;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.nav-links {
+  display: flex;
+  gap: 18px;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 100px 20px 60px;
+  background:
+    linear-gradient(rgba(10, 40, 50, 0.35), rgba(10, 40, 50, 0.55)),
+    url("surf.jpg") center/cover no-repeat;
+  color: white;
+}
+.hero-tagline {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.hero-content {
+  max-width: 760px;
+}
+
+.hero-small {
+  font-size: 13px;
+  letter-spacing: 4px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.hero h1 {
+  font-size: 48px;
+  line-height: 1.05;
+  margin-bottom: 18px;
+}
+
+.hero-text {
+  max-width: 580px;
+  margin: 0 auto 28px;
+  font-size: 18px;
+}
+
+.button {
+  display: inline-block;
+  padding: 15px 24px;
+  background: var(--whatsapp);
+  color: white;
+  text-decoration: none;
+  border-radius: 999px;
+  font-weight: 700;
+  margin: 6px;
+  transition: transform 0.2s ease;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+}
+
+section {
+  padding: 70px 20px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+h2 {
+  color: var(--ocean);
+  font-size: 34px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.lesson-grid {
+  display: grid;
+  gap: 20px;
+}
+
+.lesson-card {
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(15, 76, 92, 0.08);
+  border-radius: 20px;
+  padding: 28px;
+  box-shadow: 0 10px 30px rgba(18, 51, 59, 0.08);
+}
+
+.lesson-card h3 {
+  color: var(--deep-ocean);
+  font-size: 24px;
+  margin-bottom: 16px;
+}
+
+.lesson-card ul {
+  list-style: none;
+}
+
+.lesson-card li {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+#lessons {
+  padding-bottom: 30px;
+}
+
+.lesson-card li:last-child {
+  border-bottom: none;
+}
+
+.lesson-card strong {
+  color: var(--ocean);
+  text-align: right;
+}
+.training-section {
+  padding-top: 0;
+  padding-bottom: 10px;
+}
+
+.training-images {
+  display: grid;
+  gap: 16px;
+}
+
+.training-images img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 18px;
+  display: block;
+}
+
+@media (min-width: 750px) {
+  .training-images {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .training-images img {
+    height: 320px;
+  }
+}
+
+.note {
+  margin-top: 15px;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.photo-extra {
+  margin: 28px auto 0;
+  max-width: 850px;
+  background: var(--ocean);
+  color: white;
+  padding: 30px;
+  border-radius: 20px;
+  text-align: center;
+}
+
+.photo-extra h3 {
+  margin-bottom: 10px;
+  font-size: 24px;
+}
+
+.locations {
+  text-align: center;
+}
+
+.location-text {
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1.8;
+  color: var(--deep-ocean);
+}
+
+.location-note {
+  max-width: 560px;
+  margin: 10px auto 0;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.about {
+  max-width: 760px;
+  margin: 40px auto;
+  padding: 45px 30px;
+  background: var(--deep-ocean);
+  color: white;
+  border-radius: 22px;
+  text-align: center;
+}
+
+.about h2 {
+  color: white;
+}
+
+.about p {
+  margin-bottom: 12px;
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.contact-intro {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 28px;
+  color: var(--muted);
+}
+
+.contacts {
+  display: grid;
+  gap: 16px;
+  max-width: 900px;
+  margin: auto;
+}
+
+.contact-card {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  background: white;
+  padding: 16px;
+  border-radius: 18px;
+  box-shadow: 0 8px 24px rgba(18, 51, 59, 0.08);
+  text-align: left;
+}
+
+.instructor-img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 14px;
+  flex-shrink: 0;
+}
+
+.contact-info {
+  flex: 1;
+}
+
+.contact-info h3 {
+  margin: 0 0 8px;
+  color: var(--deep-ocean);
+  font-size: 22px;
+}
+
+.contact-info .button {
+  margin: 0;
+  padding: 11px 18px;
+  font-size: 14px;
+}
+
+.footer {
+  text-align: center;
+  background: var(--deep-ocean);
+  color: white;
+  padding: 45px 20px 30px;
+}
+
+.footer h3 {
+  font-size: 24px;
+  margin-bottom: 8px;
+}
+
+.footer p {
+  margin-bottom: 12px;
+}
+
+.instagram-link {
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  font-weight: 700;
+  margin: 8px 0 20px;
+  border-bottom: 1px solid white;
+}
+
+.copyright {
+  font-size: 13px;
+  opacity: 0.7;
+}
+
+@media (min-width: 750px) {
+  .hero h1 {
+    font-size: 74px;
+  }
+
+  .hero-text {
+    font-size: 20px;
+  }
+
+  .lesson-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .contacts {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  #lessons {
+  padding-top: 20px;
+}
+
+}
+@media (max-width: 600px) {
+  .navbar {
+    display: block;
+    text-align: center;
+    padding: 16px 10px;
+  }
+
+  .logo {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 22px;
+  }
+
+  .nav-links {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .nav-links a {
+    font-size: 13px;
+  }
+  .instructor-img {
+  width: 110px;
+  height: 110px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 15px;
+}
+}
+.floating-whatsapp {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  background: #25D366;
+  color: white;
+  text-decoration: none;
+  font-weight: 700;
+  padding: 14px 18px;
+  border-radius: 999px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.18);
+  z-index: 999;
+}
+.included {
+  margin-top: 28px;
+  text-align: center;
+}
+
+.included h3 {
+  margin-bottom: 14px;
+  color: var(--deep-ocean);
+  font-size: 22px;
+}
+
+.included-items {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.included-items span {
+  background: rgba(255,255,255,0.65);
+  padding: 9px 14px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 600;
+}
+.training-images {
+  margin-top: 30px;
+}
+.faq {
+  max-width: 800px;
+}
+
+.faq-item {
+  padding: 22px 0;
+  border-bottom: 1px solid rgba(18, 51, 59, 0.15);
+}
+
+.faq-item h3 {
+  color: var(--deep-ocean);
+  font-size: 19px;
+  margin-bottom: 8px;
+}
+
+.faq-item p {
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.faq-item:last-child {
+  border-bottom: none;
+}
+
+  </style>
+</head>
+
+<body>
+  <nav class="navbar">
+  <div class="logo">Bali Fin Surf</div>
+
+<div class="nav-links">
+  <a href="#lessons">Lessons</a>
+  <a href="#locations">Locations</a>
+  <a href="#about">About</a>
+  <a href="#contact">Contact</a>
+  <a href="#faq">FAQ</a>
+</div>
+</nav>
+
+  <header class="hero">
+  <div class="hero-content">
+    <p class="hero-small">LOCAL SURF SCHOOL IN BALI</p>
+
+    <h1>Bali Fin Surf</h1>
+
+    <p class="hero-tagline">
+      Surf Bali. Learn Local.
+    </p>
+
+    <p class="hero-text">
+      Private, group and intermediate surf lessons with local instructors
+      across Bali’s best surf spots.
+    </p>
+
+    <div class="hero-buttons">
+      <a class="button" href="https://wa.me/6285737802445">
+        Book on WhatsApp
+      </a>
+
+      <a class="button button-secondary" href="#lessons">
+        View Lessons
+      </a>
+    </div>
+  </div>
+</header>
+
+  <section id="lessons">
+    <h2>Surf Lessons</h2>
+
+    <div class="lesson-grid">
+
+      <div class="lesson-card">
+  <h3>Private Lesson</h3>
+
+  <ul>
+    <li><span>1 hour</span><strong>350K IDR</strong></li>
+    <li><span>1.5 hours</span><strong>500K IDR</strong></li>
+    <li><span>2 hours</span><strong>600K IDR</strong></li>
+  </ul>
+  
+</div>
+
+<div class="lesson-card">
+  <h3>Group Lesson</h3>
+
+  <ul>
+    <li><span>1 hour</span><strong>300K IDR / person</strong></li>
+    <li><span>1.5 hours</span><strong>400K IDR / person</strong></li>
+    <li><span>2 hours</span><strong>500K IDR / person</strong></li>
+  </ul>
+
+  <p class="note">
+    Minimum 3 people per instructor.
+  </p>
+</div>
+
+<div class="lesson-card">
+  <h3>Intermediate Lesson</h3>
+
+  <ul>
+    <li><span>1.5 hours</span><strong>500K IDR / person</strong></li>
+    <li><span>2 hours</span><strong>600K IDR / person</strong></li>
+  </ul>
+</div>
+
+  </section>
+<div class="included">
+  <h3>What’s Included</h3>
+
+  <div class="included-items">
+    <span>Surfboard</span>
+    <span>Local Instructor</span>
+    <span>Safety Briefing</span>
+    <span>Surf Guidance</span>
+    <span>Rash Guard Shirt</span>
+    <span>Reef Shoes</span>
+  </div>
+</div>
+  <section class="training-section">
+  <div class="training-images">
+    <img src="Lesson1.jpg" alt="Bali Fin Surf lesson">
+    <img src="Lesson2.jpg" alt="Bali Fin Surf lesson">
+    <img src="Lesson3.jpg" alt="Bali Fin Surf lesson">
+  </div>
+</section>
+ <div class="photo-extra">
+    <h3>📸 Photo & Feedback Package</h3>
+
+    <p>
+      Available for every lesson duration for an extra charge.
+      Get surf photos/videos from your surf session plus feedback
+      to help improve your surfing.
+    </p>
+  </div>
+
+</section>
+  <section id="locations" class="locations">
+  <h2>Surf Locations</h2>
+
+  <p class="location-text">
+    Nusa Dua · Kuta · Balangan · Jimbaran · Uluwatu
+  </p>
+
+  <p class="location-note">
+    We choose the best surf spot depending on the conditions and your surf level.
+  </p>
+</section>
+<section id="about" class="about">
+  <h2>About Bali Fin Surf</h2>
+
+  <p>
+    Bali Fin Surf is a local surf school offering private, group and intermediate lessons
+    across some of Bali’s best surf spots.
+  </p>
+
+  <p>
+    We focus on safety, fun and helping every surfer improve at their own pace.
+  </p>
+</section>
+
+  <section id="contact">
+    <h2>Contact & Booking</h2>
+
+    <p class="contact-intro">
+  Choose one of our local surf instructors and book directly via WhatsApp.
+
+<div class="contacts">
+
+  <div class="contact-card">
+    <img src="Gustana.jpg" alt="Gustana" class="instructor-img">
+
+    <div class="contact-info">
+      <h3>Gustana</h3>
+
+      <a class="button" href="https://wa.me/6285737802445">
+        WhatsApp
+      </a>
+    </div>
+  </div>
+
+  <div class="contact-card">
+    <img src="Marco.jpg" alt="Marco" class="instructor-img">
+
+    <div class="contact-info">
+      <h3>Marco</h3>
+
+      <a class="button" href="https://wa.me/6287815193750">
+        WhatsApp
+      </a>
+    </div>
+  </div>
+
+  <div class="contact-card">
+    <img src="Komang.jpg" alt="Komang" class="instructor-img">
+
+    <div class="contact-info">
+      <h3>Komang</h3>
+
+      <a class="button" href="https://wa.me/6282145710504">
+        WhatsApp
+      </a>
+    </div>
+  </div>
+
+</div>
+  </section>
+ <section id="faq" class="faq">
+  <h2>FAQ</h2>
+
+  <div class="faq-item">
+    <h3>Do I need surfing experience?</h3>
+    <p>
+      No. Our lessons are suitable for complete beginners as well as intermediate surfers.
+    </p>
+  </div>
+
+  <div class="faq-item">
+    <h3>What should I bring?</h3>
+    <p>
+      Bring swimwear and a towel. Surfboard, rash guard, reef shoes, sunscreen and zinc are included.
+    </p>
+  </div>
+
+  <div class="faq-item">
+    <h3>Where do the lessons take place?</h3>
+    <p>
+      We surf in Nusa Dua, Kuta, Balangan, Jimbaran and Uluwatu,
+      depending on conditions and your surf level.
+    </p>
+  </div>
+
+  <div class="faq-item">
+    <h3>How do I book a lesson?</h3>
+    <p>
+      Simply contact one of our instructors via WhatsApp and arrange your lesson directly.
+    </p>
+  </div>
+</section>
+
+  <footer class="footer">
+  <h3>Bali Fin Surf</h3>
+
+  <p>
+    Local surf lessons across Bali.
+  </p>
+
+  <a href="https://www.instagram.com/fin_surf86/" class="instagram-link" target="_blank" rel="noopener noreferrer">
+  Instagram
+</a>
+
+  <p class="copyright">
+    © Bali Fin Surf · Bali, Indonesia
+  </p>
+</footer>
+<a
+  href="https://wa.me/6285737802445"
+  class="floating-whatsapp"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  WhatsApp
+</a>
+
+</body>
+</html>
