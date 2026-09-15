@@ -462,6 +462,25 @@ h2 {
 .faq-item:last-child {
   border-bottom: none;
 }
+.instagram-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: white;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.instagram-logo {
+  display: inline-flex;
+  color: white;
+  margin: 10px 0 20px;
+  transition: transform 0.2s ease;
+}
+
+.instagram-logo:hover {
+  transform: scale(1.12);
+}
 
   </style>
 </head>
@@ -686,8 +705,28 @@ h2 {
     Local surf lessons across Bali.
   </p>
 
-  <a href="https://www.instagram.com/fin_surf86/" class="instagram-link" target="_blank" rel="noopener noreferrer">
-  Instagram
+<a
+  href="https://www.instagram.com/fin_surf86/"
+  class="instagram-logo"
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label="Instagram"
+>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="28"
+    height="28"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <rect x="2" y="2" width="20" height="20" rx="5"></rect>
+    <circle cx="12" cy="12" r="4"></circle>
+    <circle cx="17.5" cy="6.5" r="1"></circle>
+  </svg>
 </a>
 
   <p class="copyright">
